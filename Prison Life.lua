@@ -1,3 +1,20 @@
+-- // KEY SYSTEM CONFIG
+local CorrectKey = "BlameRoblox" -- Change your key here on GitHub anytime
+_G.PrisonKey = _G.PrisonKey or "" -- This looks for the key in the executor memory
+
+if _G.PrisonKey ~= CorrectKey then
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Prison Life",
+        Text = "Invalid or Missing Key! Set _G.PrisonKey first.",
+        Duration = 10
+    })
+    return -- This stops the script from loading the rest of the code
+end
+
+print("Key Verified! Loading Prison Life Script...")
+
+-- [PASTE THE REST OF YOUR ENTIRE V138 SCRIPT BELOW THIS LINE]
+
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
