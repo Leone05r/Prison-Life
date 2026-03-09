@@ -1,48 +1,58 @@
 -- // KEY SYSTEM CONFIG
 local CorrectKey = "BlameRoblox"
 
--- // 1. KEY GUI SETUP
+-- // 1. KEY GUI SETUP (Dark & Transparent)
 local KeyGui = Instance.new("ScreenGui", game.CoreGui)
 local KeyMain = Instance.new("Frame", KeyGui)
 local KeyTitle = Instance.new("TextLabel", KeyMain)
 local KeyInput = Instance.new("TextBox", KeyMain)
 local SubmitBtn = Instance.new("TextButton", KeyMain)
 
-KeyMain.Size = UDim2.new(0, 300, 0, 160)
-KeyMain.Position = UDim2.new(0.5, -150, 0.5, -80)
-KeyMain.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+-- Main Frame (Dark Gray & Transparent)
+KeyMain.Size = UDim2.new(0, 350, 0, 180) -- Bigger Frame
+KeyMain.Position = UDim2.new(0.5, -175, 0.5, -90)
+KeyMain.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+KeyMain.BackgroundTransparency = 0.5 -- Match main menu
 KeyMain.Active = true
 KeyMain.Draggable = true
 Instance.new("UICorner", KeyMain)
 local Stroke = Instance.new("UIStroke", KeyMain)
-Stroke.Color = Color3.fromRGB(0, 120, 255)
-Stroke.Thickness = 2
+Stroke.Color = Color3.fromRGB(255, 255, 255)
+Stroke.Transparency = 0.5
+Stroke.Thickness = 1
 
-KeyTitle.Size = UDim2.new(1, 0, 0, 40)
-KeyTitle.Text = "PRISON LIFE KEY"
+-- Title
+KeyTitle.Size = UDim2.new(1, 0, 0, 50)
+KeyTitle.Text = "PRISON LIFE ACCESS"
 KeyTitle.TextColor3 = Color3.new(1, 1, 1)
 KeyTitle.BackgroundTransparency = 1
 KeyTitle.Font = Enum.Font.GothamBold
-KeyTitle.TextSize = 14
+KeyTitle.TextSize = 18 -- Bigger Text
 
-KeyInput.Size = UDim2.new(0.8, 0, 0, 35)
-KeyInput.Position = UDim2.new(0.1, 0, 0.35, 0)
+-- Text Box (Bigger & Darker)
+KeyInput.Size = UDim2.new(0.85, 0, 0, 45) -- Bigger Box
+KeyInput.Position = UDim2.new(0.075, 0, 0.35, 0)
 KeyInput.PlaceholderText = "Enter Password..."
 KeyInput.Text = ""
 KeyInput.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+KeyInput.BackgroundTransparency = 0.3
 KeyInput.TextColor3 = Color3.new(1, 1, 1)
-KeyInput.Font = Enum.Font.Gotham
+KeyInput.Font = Enum.Font.GothamBold
+KeyInput.TextSize = 16 -- Bigger Font
 Instance.new("UICorner", KeyInput)
 
-SubmitBtn.Size = UDim2.new(0.8, 0, 0, 35)
-SubmitBtn.Position = UDim2.new(0.1, 0, 0.65, 0)
-SubmitBtn.Text = "UNLOCK SCRIPT"
-SubmitBtn.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
+-- Submit Button (Dark Gray style)
+SubmitBtn.Size = UDim2.new(0.85, 0, 0, 40)
+SubmitBtn.Position = UDim2.new(0.075, 0, 0.68, 0)
+SubmitBtn.Text = "UNLOCK"
+SubmitBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+SubmitBtn.BackgroundTransparency = 0.2
 SubmitBtn.TextColor3 = Color3.new(1, 1, 1)
 SubmitBtn.Font = Enum.Font.GothamBold
+SubmitBtn.TextSize = 14
 Instance.new("UICorner", SubmitBtn)
 
--- // 2. MAIN SCRIPT START (Wrapped in a function)
+-- // 2. MAIN SCRIPT START (Wrapped in function)
 local function LoadMainScript()
     print("Key Verified! Loading Prison Life Script...")
     
@@ -330,7 +340,7 @@ SubmitBtn.MouseButton1Click:Connect(function()
         LoadMainScript()
     else
         KeyInput.Text = ""
-        KeyInput.PlaceholderText = "WRONG KEY!"
+        KeyInput.PlaceholderText = "WRONG PASSWORD!"
         task.wait(1)
         KeyInput.PlaceholderText = "Enter Password..."
     end
